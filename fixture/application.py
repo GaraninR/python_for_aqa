@@ -11,9 +11,16 @@ class Application:
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
 
+    def is_valid(self):
+        try:
+            self.wd.current_url
+            return True
+        except:
+            return False
+
     def open_home_page(self):
         wd = self.wd
-        wd.get("http://192.168.0.213/testsuite")
+        wd.get("http://192.168.0.41:8111")
 
     def destroy(self):
         self.wd.quit()
